@@ -11,7 +11,6 @@ import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
 import keras
 import datetime
-from datetime import datetime
 from datetime import timedelta
 
 model = keras.models.load_model("LSTM.h5")
