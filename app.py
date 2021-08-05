@@ -23,7 +23,7 @@ def predict_price(final_features):
 def string_to_datetime(string, current_format, to_format=None):
 	if to_format:
 		return datetime.strptime(datetime.strptime(string, current_format).strftime(to_format), to_format)
-   	return datetime.strptime(string,current_format)
+	return datetime.strptime(string,current_format)
 
 def main():
 	st.title("Starbucks Stock Price Prediction")
