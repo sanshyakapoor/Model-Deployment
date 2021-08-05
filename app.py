@@ -13,7 +13,6 @@ import keras
 import datetime
 from datetime import datetime
 from datetime import timedelta
-import time
 
 model = keras.models.load_model("LSTM.h5")
 
@@ -23,10 +22,7 @@ def welcome():
 def predict_price(final_features):
 	pred_price = model.predict(final_features)
 	return pred_price
-def string_to_datetime(string, current_format, to_format=None):
-    if to_format:
-        return datetime.strptime(datetime.strptime(string, current_format).strftime(to_format), to_format)
-    return datetime.strptime(string, current_format)
+
 def main():
 	st.title("Starbucks Stock Price Prediction")
 	html_temp = """
@@ -43,7 +39,6 @@ def main():
 	# Getting the start day and next day from the dataset
 	start_day = stock_data.index[0]
 	last_day = stock_data.index[-1]
-	last_day1= string_to_datetime(last_day,'%d/%m/%Y')
 	next_day = last_day + datetime.timedelta(days = 1)
 
 	# Taking date input
@@ -93,7 +88,7 @@ def main():
 
 		# Percentage increase or decrease in Closed Price
 		previous = pred_price
-		previous_pred_price = X.at[str(input_date - datetime.timedelta(days = j)), 'Close/Last']
+		previous_pred_price = X.at[str(input_date - datetime.timedelta(days = j)), 'Close']
 
 		diff=(float)(pred_price - previous_pred_price)
 		if(diff < 0):
