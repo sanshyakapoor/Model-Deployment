@@ -43,7 +43,7 @@ def main():
 	start_day = stock_data.index[0]
 	last_day = stock_data.index[-1]
 	last_day1= string_to_datetime(last_day,'%d/%m/%Y')
-	next_day = last_day + datetime.timedelta(days = 1)
+	next_day = last_day1 + datetime.timedelta(days = 1)
 
 	# Taking date input
 	input_date = st.date_input("Enter a Date: ", next_day)
