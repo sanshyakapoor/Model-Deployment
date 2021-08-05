@@ -39,7 +39,10 @@ def main():
 	# Getting the start day and next day from the dataset
 	start_day = stock_data.index[0]
 	last_day = stock_data.index[-1]
-	next_day = last_day + datetime.timedelta(days = 1)
+	#next_day = last_day + datetime.timedelta(days = 1)
+	initial_date = last_day
+	next_day = pd.to_datetime(initial_date) + pd.DateOffset(days=1)
+	
 
 	# Taking date input
 	input_date = st.date_input("Enter a Date: ", next_day)
