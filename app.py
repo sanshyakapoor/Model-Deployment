@@ -38,11 +38,11 @@ def main():
 	start_day = stock_data.index[0]
 	last_day = stock_data.index[-1]
  
-  def string_to_datetime(string, current_format, to_format=None):
-    if to_format:
-        return datetime.strptime(datetime.strptime(string, current_format).strftime(to_format), to_format)
-    return datetime.strptime(string, current_format)
-  last_day1= string_to_datetime(last_day,'%d/%m/%Y')
+  	def string_to_datetime(string, current_format, to_format=None):
+    		if to_format:
+        		return datetime.strptime(datetime.strptime(string, current_format).strftime(to_format), to_format)
+   	        return datetime.strptime(string, current_format)
+        last_day1= string_to_datetime(last_day,'%d/%m/%Y')
   
 	next_day = last_day1 + datetime.timedelta(days = 1)
 
@@ -66,7 +66,7 @@ def main():
 
 		i = dates_list.index(str(input_date - datetime.timedelta(days = j)))
 
-		X = stock_data.filter(['Close/Last'])
+		X = stock_data.filter(['Close'])
 		# Get the last 20 day closing price values and convert the dataframe to an array
 		last_20_days = X[i-20: i].values
 		# Scale the data to be values between 0 and 1
