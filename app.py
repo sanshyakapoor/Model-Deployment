@@ -94,9 +94,9 @@ def main():
 
 		diff=(float)(pred_price - previous_pred_price)
 		if(diff < 0):
-			st.write("percentage decrease = ",numpy.round(((- (diff)/previous_pred_price)*100),2))
+			st.write("percentage decrease = ",np.round(((- (diff)/previous_pred_price)*100),2))
 		else:
-			st.write("percentage increase = ",numpy.round((( (diff)/previous_pred_price)*100),2))
+			st.write("percentage increase = ",np.round((( (diff)/previous_pred_price)*100),2))
 
 	else:
 		st.error('Error: Either the date is above the last date of the dataset OR below the start date + 20 days of the dataset. Please enter a date between or equal to {} and {} !!'.format(start_day + datetime.timedelta(days = 20), next_day))
